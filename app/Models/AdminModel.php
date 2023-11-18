@@ -27,6 +27,14 @@ class AdminModel extends Model
         'password' => 'required'
     ];
 
+    public function getLatest()
+    {
+        $query = $this->select('id, name, username, email')
+                    ->orderBy('created_at', 'desc');
+        return $query->findAll();
+    }
+
+
     public function addAdmin($data)
     {
         $admin = new \App\Entities\Admin();

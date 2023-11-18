@@ -8,6 +8,13 @@ use CodeIgniter\HTTP\Request;
 
 class AdminController extends BaseController
 {
+    var $sess;
+    public function __construct()
+    {
+        //this fix
+        $this->sess = session();
+    }
+
     public function loginHandler()
     {
         // Login page
@@ -37,6 +44,7 @@ class AdminController extends BaseController
         if ($this->validate($adminModel->rules)) {
             $adminData = $this->request->getPost();
             $result = $adminModel->addAdmin($adminData);
+            $this->sess->setFlashdata('admins', $adminModel->getLatest());
             return redirect()->to('/');
         } else {
             $data['validation'] = $this->validator;
@@ -59,6 +67,7 @@ class AdminController extends BaseController
             );
             if ($result) {
                 # code...
+                $this->sess->setFlashdata('admins', $adminModel->getLatest());
                 return redirect()->to('/');
             } else {
                 # code...
@@ -73,8 +82,15 @@ class AdminController extends BaseController
         
     }
 
+    public function dasboard() 
+    {
+        $adminModel = new AdminModel();
+        $this->sess->setFlashdata('admins', $adminModel->getLatest());
+        return view('admin_admin');
+    }
     public function index() 
     {
-        return view('home');
+        return view('admin_dashboard');
     }
+
 }

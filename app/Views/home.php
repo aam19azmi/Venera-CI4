@@ -185,7 +185,7 @@
 			<div class="image-cell">
 				<div class="thumbnail-container">
 					<div class='main'>
-						<img class='tokenImage' src="https://placekitten.com/420/320?image=5" alt="NFT" />
+						<img class='tokenImage' src="assets/images/Foto.jpg" alt="NFT" />
 						<div class="overflow">
 							<h3>Nama Produk</h3>
 							<p class='description'>lorem ipsum</p>
@@ -377,7 +377,7 @@
 			<div class="image-cell">
 				<div class="thumbnail-container">
 					<div class='main'>
-						<img class='tokenImage' src="https://placekitten.com/420/320?image=1" alt="NFT" />
+						<img class='tokenImage' src="assets/images/Foto.jpg" alt="NFT" />
 						<div class="overflow">
 							<h3>Nama Produk</h3>
 							<p class='description'>lorem ipsum</p>
@@ -552,7 +552,7 @@
 			<div class="image-cell">
 				<div class="thumbnail-container">
 					<div class='main'>
-						<img class='tokenImage' src="https://placekitten.com/420/320?image=3" alt="NFT" />
+						<img class='tokenImage' src="assets/images/Foto.jpg" alt="NFT" />
 						<div class="overflow">
 							<h3>Nama Produk</h3>
 							<p class='description'>lorem ipsum</p>
@@ -727,7 +727,7 @@
 			<div class="image-cell">
 				<div class="thumbnail-container">
 					<div class='main'>
-						<img class='tokenImage' src="https://placekitten.com/420/320?image=4" alt="NFT" />
+						<img class='tokenImage' src="assets/images/Foto.jpg" alt="NFT" />
 						<div class="overflow">
 							<h3>Nama Produk</h3>
 							<p class='description'>lorem ipsum</p>
@@ -902,7 +902,7 @@
 			<div class="image-cell">
 				<div class="thumbnail-container">
 					<div class='main'>
-						<img class='tokenImage' src="https://placekitten.com/420/320?image=6" alt="NFT" />
+						<img class='tokenImage' src="assets/images/Foto.jpg" alt="NFT" />
 						<div class="overflow">
 							<h3>Nama Produk</h3>
 							<p class='description'>lorem ipsum</p>
@@ -1077,7 +1077,7 @@
 			<div class="image-cell">
 				<div class="thumbnail-container">
 					<div class='main'>
-						<img class='tokenImage' src="https://placekitten.com/420/320?image=7" alt="NFT" />
+						<img class='tokenImage' src="assets/images/Foto.jpg" alt="NFT" />
 						<div class="overflow">
 							<h3>Nama Produk</h3>
 							<p class='description'>lorem ipsum</p>
@@ -1252,7 +1252,7 @@
 			<div class="image-cell">
 				<div class="thumbnail-container">
 					<div class='main'>
-						<img class='tokenImage' src="https://placekitten.com/420/320?image=8" alt="NFT" />
+						<img class='tokenImage' src="assets/images/Foto.jpg" alt="NFT" />
 						<div class="overflow">
 							<h3>Nama Produk</h3>
 							<p class='description'>lorem ipsum</p>
@@ -1427,7 +1427,7 @@
 			<div class="image-cell">
 				<div class="thumbnail-container">
 					<div class='main'>
-						<img class='tokenImage' src="https://placekitten.com/420/320?image=2" alt="NFT" />
+						<img class='tokenImage' src="assets/images/Foto.jpg" alt="NFT" />
 						<div class="overflow">
 							<h3>Nama Produk</h3>
 							<p class='description'>lorem ipsum</p>
