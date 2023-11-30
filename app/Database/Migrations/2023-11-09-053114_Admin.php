@@ -33,6 +33,10 @@ class Admin extends Migration
                 'type'=> 'VARCHAR',
                 'constraint'=> 64
             ],
+            'profil'    => [
+                'type'  => 'varchar',
+                'constraint'=> 255
+            ],
             'created_at' => [
                 'type'    => 'TIMESTAMP',
                 'default' => new RawSql('CURRENT_TIMESTAMP')

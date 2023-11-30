@@ -10,7 +10,7 @@ class AdminModel extends Model
     protected $table            = 'admins';
 
     // Fillable columns
-    protected $allowedFields = array('id', 'name', 'username', 'email', 'password');
+    protected $allowedFields = array('id', 'name', 'username', 'email', 'password', 'profil');
     
     protected $returnType = \App\Entities\Admin::class;
 
@@ -19,7 +19,8 @@ class AdminModel extends Model
         'username' => 'required|alpha_numeric|min_length[5]|is_unique[admins.username]',
         'email' => 'required|valid_email|is_unique[admins.email]',
         'password' => 'required',
-        'confirmPassword' => 'required|matches[password]'
+        'confirmPassword' => 'required|matches[password]',
+        'profil' => 'required'
     ];
 
     public $loginRules = [
