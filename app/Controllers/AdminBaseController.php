@@ -87,7 +87,6 @@ class AdminBaseController extends BaseController
     public function update($id)
     {
         $admin = $this->adminModel->find($id);
-
         if (!$admin) {
             // Handle the case where the admin is not found
             return redirect()->to('/adminbase')->with('error', 'Admin not found');

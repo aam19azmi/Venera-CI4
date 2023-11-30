@@ -51,62 +51,75 @@ class ProductController extends BaseController
     }
 
     public function update($id)
-{
-    $productModel = new Product();
+    {
+        $productModel = new Product();
 
-    // Get the existing product data
-    $existingProduct = $productModel->find($id);
+        // Get the existing product data
+        $existingProduct = $productModel->find($id);
 
-    // Get the existing picture name
-    $existingPicture = $existingProduct['picture'];
+        // Get the existing picture name
+        $existingPicture = $existingProduct['picture'];
 
-    // Handle image upload if a new file is selected
-    $picture = $this->request->getFile('gambar');
-    if ($picture->isValid() && !$picture->hasMoved()) {
-        // Move the new image
-        $newPictureName = $picture->getRandomName();
-        $picture->move(ROOTPATH . 'public/assets/img/produk/', $newPictureName);
+        // Handle image upload if a new file is selected
+        $picture = $this->request->getFile('gambar');
+        if ($picture->isValid() && !$picture->hasMoved()) {
+            // Move the new image
+            $newPictureName = $picture->getRandomName();
+            $picture->move(ROOTPATH . 'public/assets/img/produk/', $newPictureName);
 
-        // Delete the existing image
-        if ($existingPicture && file_exists(ROOTPATH . 'public/assets/img/produk/' . $existingPicture)) {
-            unlink(ROOTPATH . 'public/assets/img/produk/' . $existingPicture);
+            // Delete the existing image
+            if ($existingPicture && file_exists(ROOTPATH . 'public/assets/img/produk/' . $existingPicture)) {
+                unlink(ROOTPATH . 'public/assets/img/produk/' . $existingPicture);
+            }
+        } else {
+            // If no new file is selected, use the existing picture name
+            $newPictureName = $existingPicture;
         }
-    } else {
-        // If no new file is selected, use the existing picture name
-        $newPictureName = $existingPicture;
+
+        // Update the product data
+        $data = [
+            'name' => $this->request->getPost('nama_barang'),
+            'description' => $this->request->getPost('deskripsi'),
+            'picture' => $newPictureName,
+            'stock' => $this->request->getPost('stok'),
+            'price' => $this->request->getPost('harga')
+        ];
+
+        $productModel->update($id, $data);
+
+        return redirect()->to('/admin/produk');
     }
-
-    // Update the product data
-    $data = [
-        'name' => $this->request->getPost('nama_barang'),
-        'description' => $this->request->getPost('deskripsi'),
-        'picture' => $newPictureName,
-        'stock' => $this->request->getPost('stok'),
-        'price' => $this->request->getPost('harga')
-    ];
-
-    $productModel->update($id, $data);
-
-    return redirect()->to('/admin/produk');
-}
 
 
     public function delete($id)
-{
-    $productModel = new Product();
-    
-    // Get the existing picture name
-    $existingPicture = $productModel->find($id)['picture'];
-    
-    // Delete the existing image from the 'uploads' folder
-    if ($existingPicture && file_exists(ROOTPATH . 'public/assets/img/produk/' . $existingPicture)) {
-        unlink(ROOTPATH . 'public/assets/img/produk/' . $existingPicture);
+    {
+        $productModel = new Product();
+        
+        // Get the existing picture name
+        $existingPicture = $productModel->find($id)['picture'];
+        
+        // Delete the existing image from the 'uploads' folder
+        if ($existingPicture && file_exists(ROOTPATH . 'public/assets/img/produk/' . $existingPicture)) {
+            unlink(ROOTPATH . 'public/assets/img/produk/' . $existingPicture);
+        }
+
+        // Delete the product from the database
+        $productModel->delete($id);
+
+        return redirect()->to('/admin/produk');
     }
 
-    // Delete the product from the database
-    $productModel->delete($id);
+    public function home()
+    {
+        // Define your array of products
+        $products = [
+            ['name' => 'Product 1', 'image' => 'SC.jpg', 'price' => 500000, 'discount' => 50, 'daysLeft' => 11, 'description' => 'Lorem ipsum description for Product 1'],
+            ['name' => 'Product 2', 'image' => 'SC1.jpg', 'price' => 600000, 'discount' => 40, 'daysLeft' => 10, 'description' => 'Lorem ipsum description for Product 2'],
+            // Add more products as needed
+        ];
 
-    return redirect()->to('/admin/produk');
-}
+        // Load the view and pass the products data
+        return redirect()->to('/');
+    }
 
 }
